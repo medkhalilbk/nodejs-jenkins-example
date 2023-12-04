@@ -47,7 +47,19 @@ pipeline {
             }
             steps {
                 echo 'Deploying to production...'
-                // Add your deployment steps here
+                script {
+                    // Install PM2 globally if not installed
+                    sh 'npm install -g pm2'
+                    
+                    // Start or restart your Node.js application using PM2
+                    sh 'pm2 startOrRestart ecosystem.config.js'
+                    
+                    // Save the PM2 process list for later use or debugging
+                    sh 'pm2 save'
+                    
+                    // Print PM2 process list
+                    sh 'pm2 list'
+                }
             }
         }
         
