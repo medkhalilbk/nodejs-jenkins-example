@@ -1,7 +1,6 @@
 const request = require('supertest');
 const { expect } = require('expect');
-
-const app = require('./index');
+const { app, server } = require('./index');
 
 describe('Testing POSTS/answers endpoint', () => {
   it('respond with valid HTTP status code and description and message', async () => {
@@ -13,10 +12,9 @@ describe('Testing POSTS/answers endpoint', () => {
     expect(response.body.data).toBe('Auth Needed');
   });
 
-  // Add an afterAll hook to shut down the server
-  afterAll(() => {
-    // Assuming your server has a method to gracefully shut down
-    // Replace the following line with the actual method to shut down your server
-    app.close();
+  // Use the after hook to shut down the server
+  after(() => {
+    // Close the server to shut it down gracefully
+    server.close();
   });
 });
