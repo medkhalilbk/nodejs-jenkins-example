@@ -49,7 +49,8 @@ pipeline {
                 echo 'Deploying to production...'
                 script {
                     // Install PM2 globally if not installed
-                    sh 'nodemon index.js' 
+                    sh 'pm2 start index.js' 
+                    sh 'pm2 save' 
                 }
             }
         }
