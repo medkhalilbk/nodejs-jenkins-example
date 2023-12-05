@@ -71,6 +71,7 @@ pipeline {
         failure {
             echo 'Build failed! Sending notifications...'
             // Add notifications for failed build (e.g., Slack, email)
-        }
+            emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+        }  
     }
 }
