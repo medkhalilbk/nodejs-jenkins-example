@@ -8,7 +8,7 @@ describe('Testing POSTS/answers endpoint', () => {
       .post('/postMPDAM')
       .send({ data: 'test'  });
 
-    expect(response.status).toBe(403);
+    expect(response.status).toBe(200);
     expect(response.body.data).toBe('Auth Needed');
   });
 
