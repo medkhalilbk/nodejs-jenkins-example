@@ -6,5 +6,8 @@ app.get('/test', function (req, res) {
 app.get('/mpdam', function (req, res) {
     res.send('{ "response": "welcome to our api test in presentation " }');
 });
+app.post('/postMPDAM', function (req, res) {
+    res.status(403).send({ data: "Auth Needed" });
+});
 app.listen(process.env.PORT || 3000);
 module.exports = app;
