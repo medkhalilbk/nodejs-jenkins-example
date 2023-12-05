@@ -49,7 +49,7 @@ pipeline {
                 echo 'Deploying to production...'
                 script {
                     // Install PM2 globally if not installed
-                    sh 'pm2 start index.js' 
+                    sh 'pm2 restart index.js' 
                     sh 'pm2 save' 
                 }
             }
