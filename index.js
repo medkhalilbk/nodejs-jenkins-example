@@ -4,7 +4,7 @@ app.get('/test', function (req, res) {
     res.send('{ "response": "Hello World" }');
 });
 app.get('/mpdam', function (req, res) {
-    res.send('{ "response": "It works ! " }');
+    res.send('{ "response": "welcome to our api" }');
 });
 app.listen(process.env.PORT || 3000);
 module.exports = app;
